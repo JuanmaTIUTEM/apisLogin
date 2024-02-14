@@ -13,6 +13,16 @@
 		}
 
 		public function allUsersData(){
-			$this->init('admin')
+			$this->init('admin');
+			$query = "SELECT * FROM vwallusersdata;";
+			$result = $this->db->query($query);
+
+			if($result->num_rows() >0){
+				$res = $result->result_array();
+				return $res;
+			}
+			else{
+				return false;
+			}
 		}
 }

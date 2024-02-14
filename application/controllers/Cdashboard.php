@@ -7,6 +7,7 @@ class Cdashboard extends CI_Controller {
 	public function __construct() {
 	        parent::__construct();
 	        $this->load->model('Mlogin');
+	        $this->load->model('Madmin');
 	    }
 
 	    public function index() {
@@ -62,7 +63,9 @@ class Cdashboard extends CI_Controller {
 	    		//echo "Datos del Usuario:";
 	    		//print_r($user);
 	    		$this->session->set_userdata($user);
-	    		$this->load->view('admin/vwPrincipal');
+	    		$info['users'] = $this->Madmin->allUsersData();
+	    		$this->load->view('admin/vwPrincipal',$info);
+
 	    		
 	    		
 	    	}

@@ -10,6 +10,9 @@ class Cadmin extends CI_Controller {
 	    }
 
 	    public function index() {
-	        $this->load->view('admin/vwPrincipal');
+	        $info['users'] = $this->Madmin->allUsersData();
+	       	$this->load->view('admin/vwPrincipal',$info);
 	    }
+
+
 }
